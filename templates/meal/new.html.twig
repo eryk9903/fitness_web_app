@@ -1,0 +1,14 @@
+{% extends 'main_layout.html.twig' %}
+
+{% block title %}New Meal{% endblock %}
+
+{% block content %}
+    <div class="row">
+        <div class="col-3"></div>
+        <div class="col-6">
+            <h1>Create new Meal</h1>
+            {{ include('meal/_form.html.twig') }}
+        </div>
+        <div class="col-3"></div>
+    </div>
+{% endblock %}

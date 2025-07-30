@@ -1,4 +1,38 @@
 {% extends 'main_layout.html.twig' %}
+
+{% block title %}Meal index{% endblock %}
+
 {% block content %}
-    <h3>Meals</h3>
+    <h1>Meal index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Calories</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for meal in meals %}
+            <tr>
+                <td class="align-middle">{{ meal.id }}</td>
+                <td class="align-middle">{{ meal.name }}</td>
+                <td class="align-middle">{{ meal.calories }}</td>
+                <td class="d-flex gap-3">
+                    <a class="btn btn-primary" href="{{ path('app_meal_show', {'id': meal.id}) }}">show</a>
+                    <a class="btn btn-warning" href="{{ path('app_meal_edit', {'id': meal.id}) }}">edit</a>
+                    {{ include('meal/_delete_form.html.twig') }}
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_meal_new') }}">Create new</a>
 {% endblock %}
