@@ -1,0 +1,41 @@
+{% extends 'auth_layout.html.twig' %}
+
+{% block title %}Register{% endblock %}
+
+{% block form %}
+    <h1 class="h3 mb-3 font-weight-normal">Register</h1>
+
+    {{ form_errors(registrationForm) }}
+
+    {{ form_start(registrationForm) }}
+        <div class="mb-3">
+            {{ form_row(registrationForm.email, {
+                attr: {
+                    class: 'form-control'
+                },
+                label_attr: {
+                    class: 'form-label'
+                }
+            }) }}
+        </div>
+        <div class="mb-3">
+            {{ form_row(registrationForm.plainPassword, {
+                label: 'Password',
+                label_attr: {
+                    class: 'form-label'
+                },
+                attr: {
+                    class: 'form-control'
+                }
+            }) }}
+        </div>
+        <div class="mb-3 form-check">
+            {{ form_row(registrationForm.agreeTerms,{
+                attr: {
+                    class: 'form-check-input'
+                }
+            }) }}
+        </div>
+        <button type="submit" class="btn btn-primary">Register</button>
+    {{ form_end(registrationForm) }}
+{% endblock %}

@@ -1,6 +1,26 @@
 {% extends 'base.html.twig' %}
 {% block body %}
-    {% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col-3 bg-light vh-100 p-3">
+                <h3 class="px-3">FitnessApp</h3>
+                <nav class="nav flex-column">
+                    <a class="nav-link" href="/dashboard">Dashboard</a>
+                </nav>
+            </div>
+            <div class="col-9 p-0">
+                <nav class="navbar bg-body-tertiary">
+                    <div class="container-fluid">
+                        <div>Hello, {{ app.user.userIdentifier }}</div>
+                        <div>
+                            <a href="/logout">logout</a>
+                        </div>
+                    </div>
+                </nav>
+                {% block content %}
 
-    {% endblock %}
+                {% endblock %}
+            </div>
+        </div>
+    </div>
 {% endblock %}
