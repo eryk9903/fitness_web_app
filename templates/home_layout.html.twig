@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    <nav class="navbar bg-body-tertiary">
+        <div class="container-fluid">
+            <a class="navbar-brand">Fitness</a>
+            <div>
+                <a href="/login" class="me-3">login</a>
+                <a href="/register">register</a>
+            </div>
+        </div>
+    </nav>
+    {% block content %}
+
+    {% endblock %}
+{% endblock %}
